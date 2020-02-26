@@ -15,10 +15,16 @@ jobs:
           version: latest
       - name: Docker login
         run: echo ${{ secrets.DOCKER_HUB }} | docker login -u pfremm --password-stdin
-      - name: Run Buildx
+      - name: Run Buildx filebot base
         run: |
           docker buildx build \
             --platform linux/arm64 \
             --output "type=image" --push \
-            --tag $GITHUB_REPOSITORY:arm64 \
+            --tag $GITHUB_REPOSITORY:arm64 .
+      - name: Run Buildx filebot watcher
+        run: |
+          docker buildx build \
+            --platform linux/arm64 \
+            --output "type=image" --push \
+            --tag $GITHUB_REPOSITORY:watcher_arm64 \
             --file ./Dockerfile.watcher .
