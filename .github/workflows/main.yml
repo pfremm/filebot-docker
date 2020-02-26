@@ -20,4 +20,5 @@ jobs:
           docker buildx build \
             --platform linux/arm64 \
             --output "type=image" --push \
-            --tag $GITHUB_REPOSITORY:arm64 .
+            --tag $GITHUB_REPOSITORY:arm64 \
+            --file ./Dockerfile.watcher .
