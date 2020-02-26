@@ -1,4 +1,4 @@
-FROM rednoah/filebot
+FROM pfremm/filebot-docker:arm64
 
 MAINTAINER Reinhard Pointner <rednoah@filebot.net>
 
