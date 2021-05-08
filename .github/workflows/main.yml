@@ -1,6 +1,6 @@
 name: DOCKER_BUILD
 
-on: [push]
+on: [push] workflow_dispatch
 
 jobs:
   buildx:
